@@ -7,11 +7,11 @@ N.B. All schemas are written in YAML format to increase readability.
 
 ## MQTT Topics
 
-| Schema        | MQTT Topic                        |
-| ------------- | --------------------------------- |
-| journey       | /service/v1/journey               |
-| at_stop       | /service/v1/Validate/atStop       |
-| last_stop     | /service/v1/lastStop              |
-| next_stop     | /service/v1/nextStop              |
-| latest_ticket | /service/v1/Validate/latestticket |
-| status        | /service/v1/Validate/status       |
+| Schema        | MQTT Topic                        | Direction |
+| ------------- | --------------------------------- | --------- |
+| journey       | /service/v1/journey               | in        |
+| at_stop       | /service/v1/Validate/atStop       | in        |
+| last_stop     | /service/v1/lastStop              | in        |
+| next_stop     | /service/v1/nextStop              | in        |
+| latest_ticket | /service/v1/Validate/latestticket | out       |
+| status        | /service/v1/Validate/status       | out       |
