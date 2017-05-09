@@ -14,6 +14,7 @@ def main():
     parser.add_argument('schema',
                         nargs='+',
                         metavar='filename')
+    parser.add_argument('--json', action='store_true')
     args = parser.parse_args()
 
     for filename in args.schema:
@@ -27,6 +28,9 @@ def main():
                 raise Exception("Unknown schema format")
 
         jsonschema.Draft4Validator.check_schema(schema)
+
+        if args.json:
+            print(json.dumps(schema, indent=4))
 
 
 if __name__ == "__main__":
