@@ -1,0 +1,37 @@
+$schema: http://json-schema.org/schema#
+
+type: object
+required:
+  - validator
+  - ready
+properties:
+  validator:
+    $ref: '#/definitions/validator'
+  ready:
+    description: Validator ready for operation
+    type: boolean
+  statusMessageTerse:
+    description: Terse validator status message
+    type: string
+  statusMessageVerbose:
+    description: Verbose validator status message
+    type: string
+  eventQueueLength:
+    description: Number of records in the event queue
+    type: number
+
+definitions:
+  validator:
+    type: object
+    required:
+      - validatorId
+    properties:
+      validatorId:
+        description: what validator originated the event
+        type: string
+      location:
+        description: where is validator mounted (vehicle, platform, camel)
+        type: string
+      sublocation:
+        description: more specific location information (e.g., door)
+        type: string

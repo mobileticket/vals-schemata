@@ -1,0 +1,31 @@
+$schema: http://json-schema.org/schema#
+
+type: object
+required:
+  - destination
+  - serviceId
+  - tripId
+  - blockId
+properties:
+  destination:
+    description: The destination of the service
+    type: object
+    required:
+      - stopAreaId
+      - stopAreaName
+    properties:
+      stopAreaId:
+        description: The unique identifier of the stop
+        type: string
+      stopAreaName:
+        description: The name of the stop
+        type: string
+  serviceId:
+    description: The service the vehicle is on
+    type: string
+  tripId:
+    description: The trip the vehicle is on
+    type: string
+  blockId:
+    description: The block the vehicle is on
+    type: string

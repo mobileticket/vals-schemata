@@ -1,0 +1,72 @@
+$schema: http://json-schema.org/schema#
+
+type: object
+required:
+  - validTicket
+  - issuerId
+  - travellersPerCategory
+properties:
+  validator:
+    $ref: '#/definitions/validator'
+  validTicket:
+    description: Flag if ticket is valid
+    type: boolean
+  eventResult:
+    description: BoB Validation event Result
+    type: integer
+  eventReason:
+    description: Reason for failure/success
+    type: string
+  issuerId:
+    description: Ticket issuer identifier (PID)
+    type: string
+  issuerName:
+    description: Ticket issuer name
+    type: string
+  productIds:
+    description: Product identifiers for ticket
+    type: array
+    items:
+      type: string
+  productName:
+    description: Name of product
+    type: string
+  timeOfIssue:
+    description: DateTime of ticket issuing
+    type: string
+    format: date-time
+  expire:
+    description: DateTime of ticket expire
+    type: string
+    format: date-time
+  graced:
+    description: True if ticket was accepted due to uncertainty
+    type: boolean
+  travellersPerCategory:
+    description: Travellers per category
+    type: array
+    items:
+      type: object
+      properties:
+        cat:
+          description: Traveller category
+          type: string
+        tra:
+          description: Number of travellers
+          type: number
+
+definitions:
+  validator:
+    type: object
+    required:
+      - validatorId
+    properties:
+      validatorId:
+        description: what validator originated the event
+        type: string
+      location:
+        description: where is validator mounted (vehicle, platform, camel)
+        type: string
+      sublocation:
+        description: more specific location information (e.g., door)
+        type: string

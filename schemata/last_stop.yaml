@@ -1,0 +1,26 @@
+$schema: http://json-schema.org/schema#
+
+type: object
+required:
+  - stopAreaId
+  - stopAreaName
+properties:
+  stopAreaId:
+    description: The unique identifier of the stop
+    type: string
+  stopAreaName:
+    description: The name of the stop
+    type: string
+  zones:
+    description: array of zones connected to the stop, primary zone first
+    type: array
+    items:
+      type: object
+      required:
+        - zoneId
+        - zoneName
+      properties:
+        zoneId:
+          type: string
+        zoneName:
+          type: string
