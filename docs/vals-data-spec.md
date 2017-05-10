@@ -2,7 +2,7 @@
 
 ## General information
 
-Validation Service aboard is the device that reads and interprets the ticket “blipped” by the traveller when embarking. Included in the Validation Service concept is also a software programme to view the validated ticket on a drivers display.
+Validation Service aboard is the device that reads and interprets the ticket "blipped" by the traveller when embarking. Included in the Validation Service concept is also a software programme to view the validated ticket on a drivers display.
 
 ![Vals overview](img/validationService.png?raw=true  "Vals overview")
 Validation Service checks that the scanned ticket is authentic and not copied. This is for example done by checking the cryptographical signatures. Validation Service also check the ticket validity regarding time and place.
@@ -21,7 +21,7 @@ The geographical validity of a ticket is verified according to the following ste
 
 In addition to valid zone, the ticket's validity time is controlled in relation to the current time.
 
-Not valid ticket is signalled with “Bad Read” on the scanner, typically a flashing red light and a angry signal. Valid ticket can be signalled in two different ways. If the traveller category is one (1) adult (= normal) “Good read” is signalled, typically a green flash and a happier signal on the buzzer. All other valid tickets are signalled with “Good other”, same audio as “Good read” but with more colours on the lights besides green. The drivers monitor has the same visual signals.
+Not valid ticket is signalled with "Bad Read" on the scanner, typically a flashing red light and a angry signal. Valid ticket can be signalled in two different ways. If the traveller category is one (1) adult (= normal) "Good read" is signalled, typically a green flash and a happier signal on the buzzer. All other valid tickets are signalled with "Good other", same audio as "Good read" but with more colours on the lights besides green. The drivers monitor has the same visual signals.
 
 ## Driver's monitor
 
@@ -49,9 +49,12 @@ Correct time is synchronised over the NTP protocol to Validation Service at syst
 
 Position is used to expand the information to be validated. In other words must at least the same information used in the Tickle-sentence also be accessible to the Validation Service.
 
-All information concerning place is obtained over MQTT in the Vehicle network. The following telegrams are used:
+All information concerning place is obtained over MQTT in the Vehicle network. Telegrams shall be JSON encoded as UTF-8.
 
-####GPS
+All The following telegrams are used:
+
+### GPS
+
 - **GPS** (NMEA 0183), Position is published as a NMEA0183-sentence in the format \$GPRMC (Recommended minimum specific GPS/Transit data).
 
 GPS should not be updated with a frequency higher than 1 (one) hertz. A preferable resolution is about every 5th second.
@@ -62,66 +65,55 @@ Example of an \$GPRMC-string:
 
     \$GPRMC,150000,A,5654.660,N,01432.52,E,3.14,90,241216,1.2,E,A\*3E
 
-####Journey
+### Journey
+
 **Journey** (Service), Includes service number (linjenummer) and destination. Service is normally not used as validation term but is sent together with other data in transactions to backend for statistics. Journey-telegram should be sent in connection to when the Vehicle is signposted, so that the drivers monitor can display the same information as the vehicle sign. Journey-telegram should after that be sent out approx every 30 sec.
 
-Journey shall be as follow:
+    journey = {
+      destination: ’destination of the line’,
+      serviceId:   'unique identifier of the service the vehicle is on',
+      tripId:      'trip the vehicle is on',
+      blockId:     'block the vehicle is on'
+    }
 
-```
-	Journey :{
-		'destination':  ’The destination of the line’,
-  		'serviceId': 'Unicue identifier of the  service the vehicle is on',
-  		'tripId': 'The trip the vehicle is on',
-  		'blockId': 'The block the vehicle is on'
-	}
-```
 *Source: [../schemata/journey.yaml](../schemata/journey.yaml)*
 
 
-####lastStop
-**lastStop** (current stop), contains the unique id (GID), name of the stop (to be displayed on the drivers monitor and zone-id and zone name. If the stop is connected to more than one zone (called “omlottzon”) all zones shall be included with their zone-ids and zone names. LastStop telegrams should be sent in connection to the vehicle arriving at the stop.
+### Last stop
 
-lastStop shall be as follow:
+**Last stop** (current stop), contains the unique id (e.g., GID), name of the stop (to be displayed on the drivers monitor and zone-id and zone name. If the stop is connected to more than one zone (called "omlottzon") all zones shall be included with their zone-ids and zone names. LastStop telegrams should be sent in connection to the vehicle arriving at the stop.
 
-```
-	lastStop :{
-		'stopAreaId': 'The unique identifier (GID) of the stop',
-  		'stopAreaName':  ’The name of the stop’,
-  		'zones': 'array of zones connected to the stop, primary zone first',
-	}
-```
+    last_stop = {
+        stopAreaId:    'unique identifier (GID) of the stop',
+        stopAreaName:  ’name of the stop’,
+        zones:         'array of zones connected to the stop, primary zone first',
+    }
+
 *Source: [../schemata/last_stop.yaml](../schemata/last_stop.yaml)*
 
 
-####nextStop
-**nextStop** The same information as lastStop but concerning the approaching stop. NextStop should be sent in connection to lastStop.
+### Next stop
 
-nextStop shall be as follow:
+**Next stop** contains same information as **last stop** but concerning the approaching stop. Next stop should be sent in connection to lastStop.
 
-```
-	nextStop :{
-		'stopAreaId': 'The unique identifier (GID) of the stop',
-  		'stopAreaName':  ’The name of the stop’,
-  		'zones': 'array of zones connected to the stop, primary zone first',
-	}
-```
+     next_stop = {
+         stopAreaId:    'unique identifier (GID) of the stop',
+         stopAreaName:  'name of the stop',
+         zones:         'array of zones connected to the stop, primary zone first',
+     }
+
 *Source: [../schemata/next_stop.yaml](../schemata/next_stop.yaml)*
 
 
-####atStop
-**atStop**, boolean value True/False depending if the vehicle is at a stop or not. This information is used to adjust the backlight on the drivers monitor. AtStop-telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
+### At stop
 
-atStop shall be as follow:
+**At stop** contains a boolean value True/False depending if the vehicle is at a stop or not. This information is used to adjust the backlight on the drivers monitor. AtStop-telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
 
-```
-	atStop :{
-		’atStop’: 'True if the vehicle is at stop, otherwise False'
-	}
-```
+    at_stop = {
+        atStop:  'True if the vehicle is at stop, otherwise False'
+    }
+
 *Source: [../schemata/at_stop.yaml](../schemata/at_stop.yaml)*
-
-
-All telegrams shall be JSON encoded as UTF-8.
 
 
 ## Publication of validation over MQTT
@@ -130,42 +122,41 @@ Validation Service publish validation information in a pre-formatted text versio
 
 In connection to a validation two telegrams are published, **latestTicket** containing the pre-formatted text version of the validated ticket and **status** containing place information etc. Status is published in relation to events such as a new stop, new service etc. in order to keep the information on the drivers monitor updated.
 
-####latestTicket
-**latestTicket** is as follow:
+### Latest ticket
 
-```
-	latestTicket : {
-		validator’: 'what validator originated the event',
-        validTicket: 'Flag if ticket is valid',
-		eventResult: 'BoB Validation event Result',
-		eventReason: 'Reason for failure/success',
-		issuerId: 'Ticket issuer identifier (PID)',
-		issuerName: 'Ticket issuer name',
-		productIds: 'Product identifiers for ticket',
-		productName: 'Name of product',
-		timeOfIssue: 'DateTime of ticket issuing',
-		expire:'DateTime of ticket expire',
-		graced: 'True if ticket was accepted due to uncertainty',
-		travellersPerCategory: 'Travellers per category'
-	}
-```
+    latest_ticket = {
+        validator:              'what validator originated the event',
+        validTicket:            'Flag if ticket is valid',
+        eventResult:            'BoB Validation event Result',
+        eventReason:            'Reason for failure/success',
+        issuerId:               'Ticket issuer identifier (PID)',
+        issuerName:             'Ticket issuer name',
+        productIds:             'Product identifiers for ticket',
+        productName:            'Name of product',
+        timeOfIssue:            'DateTime of ticket issuing',
+        expire:                 'DateTime of ticket expire',
+        graced:                 'True if ticket was accepted due to uncertainty',
+        travellersPerCategory:  'Travellers per category'
+    }
+
 *Source: [../schemata/latest_ticket.yaml](../schemata/latest_ticket.yaml)*
 
 
-####status
-**status** is as follow:
+### Status
 
-	status : {
-		validator’: 'what validator originated the event',
-        ready: 'Validator ready for operation'
-		statusMessageTerse: 'Terse validator status message',
-		statusMessageVerbose: 'Verbose validator status message',
-		eventQueueLength: 'Number of records in the event queue'
-	}
-```
+    status = {
+        validator:             'What validator originated the event',
+        ready:                 'Validator ready for operation'
+        statusMessageTerse:    'Terse validator status message',
+        statusMessageVerbose:  'Verbose validator status message',
+        eventQueueLength:      'Number of records in the event queue'
+    }
+
+
 *Source: [../schemata/status.yaml](../schemata/status.yaml)*
 
 All strings in both telegram types are encoded as UTF-8.
+
 
 ## MQTT topics
 
@@ -192,14 +183,12 @@ Preferably are if the following topics can be used:
 
 Validation Service communicates with backend at typically startup and at every transaction. Communication is made through ssh and rsync (encrypted over ssh) to handle programs and data providing and through the BoB API:s, which are a RESTful API over TLS.
 
-![Nb: This image view an earlier version of BoB API-endpoints.](img/api.png)
+![N.B.: This image shows an earlier version of BoB API-endpoints.](img/api.png)
 
 At boot the host handshakes with backend and check program versions. A possibly download of new packages and configuration data can be made. At upstart of Validation Service, a connection to backend is made to receive a Auth-token (JWT) from BoB Auth Endpoint.
 
 After the start-up of Validation Service, all communications are made asynchronous and are queued in the transaction manager of Validation Service.
 
-Communication shall be based on TCP/IP. Validation Service handles both
-IPv4 and IPv6 seamlessly. The IP addressing can be static or over DHCP,
-although DHCP is preferred. If static IP is used, the units for Validation Service should have the same IP-address regardless of which vehicle. E.g. the vehicle network use NAT or corresponding address translation.
+Communication shall be based on TCP/IP. Validation Service handles both IPv4 and IPv6 seamlessly. The IP addressing can be static or over DHCP, although DHCP is preferred. If static IP is used, the units for Validation Service should have the same IP-address regardless of which vehicle. E.g., the vehicle network use NAT or corresponding address translation.
 
 The vehicle shall have a gateway that TCP-sessions can be established between every vehicle and backend. If the vehicle is moving between different systems the Validation Service needs to be able to reach backend API:s I for each of these systems. This can be made by a proxy in Validation Service backend.
