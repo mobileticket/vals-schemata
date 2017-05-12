@@ -67,27 +67,20 @@ Example of an \$GPRMC-string:
 
 ### Journey
 
-**Journey** (Service), Includes service number (linjenummer) and destination. Service is normally not used as validation term but is sent together with other data in transactions to backend for statistics. Journey-telegram should be sent in connection to when the Vehicle is signposted, so that the drivers monitor can display the same information as the vehicle sign. Journey-telegram should after that be sent out approx every 30 sec.
+**Journey** (Service), Includes service number (linjenummer) and destination. Service is normally not used as validation term but is sent together with other data in transactions to backend for statistics. 
 
-    journey = {
-      destination: ’destination of the line’,
-      serviceId:   'unique identifier of the service the vehicle is on',
-      tripId:      'trip the vehicle is on',
-      blockId:     'block the vehicle is on'
-    }
+Journey-telegram should be sent in connection to when the Vehicle is signposted, so that the drivers monitor can display the same information as the vehicle sign. 
+
+Journey-telegram should after that be sent out approx every 30 sec.
 
 *Source: [../schemata/journey.yaml](../schemata/journey.yaml)*
 
 
 ### Last stop
 
-**Last stop** (current stop), contains the unique id (e.g., GID), name of the stop (to be displayed on the drivers monitor and zone-id and zone name. If the stop is connected to more than one zone (called "omlottzon") all zones shall be included with their zone-ids and zone names. LastStop telegrams should be sent in connection to the vehicle arriving at the stop.
+**Last stop** (current stop), contains the unique id (e.g., GID), name of the stop (to be displayed on the drivers monitor and zone-id and zone name. If the stop is connected to more than one zone (called "omlottzon") all zones shall be included with their zone-ids and zone names. 
 
-    last_stop = {
-        stopAreaId:    'unique identifier (GID) of the stop',
-        stopAreaName:  ’name of the stop’,
-        zones:         'array of zones connected to the stop, primary zone first',
-    }
+LastStop telegrams should be sent in connection to the vehicle arriving at the stop.
 
 *Source: [../schemata/last_stop.yaml](../schemata/last_stop.yaml)*
 
@@ -96,22 +89,14 @@ Example of an \$GPRMC-string:
 
 **Next stop** contains same information as **last stop** but concerning the approaching stop. Next stop should be sent in connection to lastStop.
 
-     next_stop = {
-         stopAreaId:    'unique identifier (GID) of the stop',
-         stopAreaName:  'name of the stop',
-         zones:         'array of zones connected to the stop, primary zone first',
-     }
-
 *Source: [../schemata/next_stop.yaml](../schemata/next_stop.yaml)*
 
 
 ### At stop
 
-**At stop** contains a boolean value True/False depending if the vehicle is at a stop or not. This information is used to adjust the backlight on the drivers monitor. AtStop-telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
+**At stop** contains a boolean value True/False depending if the vehicle is at a stop or not. This information is used to adjust the backlight on the drivers monitor. 
 
-    at_stop = {
-        atStop:  'True if the vehicle is at stop, otherwise False'
-    }
+AtStop-telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
 
 *Source: [../schemata/at_stop.yaml](../schemata/at_stop.yaml)*
 
@@ -120,38 +105,16 @@ Example of an \$GPRMC-string:
 
 Validation Service publish validation information in a pre-formatted text version over MQTT in the vehicle internal network. This information is used by the drivers monitor included in Validation Service or by other software to view validation information.
 
-In connection to a validation two telegrams are published, **latestTicket** containing the pre-formatted text version of the validated ticket and **status** containing place information etc. Status is published in relation to events such as a new stop, new service etc. in order to keep the information on the drivers monitor updated.
+In connection to a validation two telegrams are published, see below.
 
 ### Latest ticket
-
-    latest_ticket = {
-        validator:              'what validator originated the event',
-        validTicket:            'Flag if ticket is valid',
-        eventResult:            'BoB Validation event Result',
-        eventReason:            'Reason for failure/success',
-        issuerId:               'Ticket issuer identifier (PID)',
-        issuerName:             'Ticket issuer name',
-        productIds:             'Product identifiers for ticket',
-        productName:            'Name of product',
-        timeOfIssue:            'DateTime of ticket issuing',
-        expire:                 'DateTime of ticket expire',
-        graced:                 'True if ticket was accepted due to uncertainty',
-        travellersPerCategory:  'Travellers per category'
-    }
+**Latest ticket** contains the pre-formatted text version of the last validated ticket in actual validator.
 
 *Source: [../schemata/latest_ticket.yaml](../schemata/latest_ticket.yaml)*
 
 
 ### Status
-
-    status = {
-        validator:             'What validator originated the event',
-        ready:                 'Validator ready for operation'
-        statusMessageTerse:    'Terse validator status message',
-        statusMessageVerbose:  'Verbose validator status message',
-        eventQueueLength:      'Number of records in the event queue'
-    }
-
+**status** containing place information etc. Status is published in relation to events such as a new stop, new service etc. in order to keep the information on the drivers monitor updated.
 
 *Source: [../schemata/status.yaml](../schemata/status.yaml)*
 
