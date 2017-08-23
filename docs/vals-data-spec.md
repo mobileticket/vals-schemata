@@ -135,7 +135,6 @@ Preferably are if the following topics can be used:
 | none          | /service/gps/rmc                  | in        |
 | journey       | /service/v1/journey               | in        |
 | at_stop       | /service/v1/atStop                | in        |
-| at_stop       | /service/v1/atStop                | in        |
 | last_stop     | /service/v1/lastStop              | in        |
 | next_stop     | /service/v1/nextStop              | in        |
 | latest_ticket | /service/v1/Validate/latestticket | out       |
