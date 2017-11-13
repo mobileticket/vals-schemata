@@ -5,6 +5,7 @@ required:
   - validTicket
   - issuerId
   - travellersPerCategory
+  - tickle
 properties:
   validator:
     $ref: '#/definitions/validator'
@@ -54,6 +55,9 @@ properties:
         tra:
           description: Number of travellers
           type: number
+  tickle:
+    description: Ticket tickle string
+    type: string
 
 definitions:
   validator:
