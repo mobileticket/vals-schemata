@@ -58,6 +58,9 @@ properties:
   tickle:
     description: Ticket tickle string
     type: string
+  tickleMacrosSerial:
+    description: Tickle macros serial number
+    type: integer
 
 definitions:
   validator:
