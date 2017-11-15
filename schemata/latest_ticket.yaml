@@ -55,12 +55,8 @@ properties:
         tra:
           description: Number of travellers
           type: number
-  tickle:
-    description: Ticket tickle string
-    type: string
-  tickleMacrosSerial:
-    description: Tickle macros serial number
-    type: integer
+  mtb:
+    $ref: '#/definitions/mtb'
 
 definitions:
   validator:
@@ -76,4 +72,20 @@ definitions:
         type: string
       sublocation:
         description: more specific location information (e.g., door)
+        type: string
+  mtb:
+    type: object
+    required:
+      - c_vt
+      - c_vm
+      - c_tc
+    properties:
+      c_vt:
+        description: TICKLE language version number
+        type: integer
+      c_vm:
+        description: TICKLE macros serial number
+        type: integer
+      c_tc:
+        description: TICKLE concrete syntax entitlement
         type: string
