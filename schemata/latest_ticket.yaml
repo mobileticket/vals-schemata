@@ -75,16 +75,21 @@ definitions:
         type: string
   mtb:
     type: object
+    additionalProperties: true
     required:
-      - c_vt
+      - c_vn
       - c_vm
+      - c_vt
       - c_tc
     properties:
-      c_vt:
-        description: TICKLE language version number
+      c_vn:
+        description: Coordinated ticket name space serial number
         type: integer
       c_vm:
         description: TICKLE macros serial number
+        type: integer
+      c_vt:
+        description: TICKLE language version number
         type: integer
       c_tc:
         description: TICKLE concrete syntax entitlement
