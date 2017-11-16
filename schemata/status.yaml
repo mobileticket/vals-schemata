@@ -23,7 +23,6 @@ properties:
       type: object
       required:
         - zoneId
-        - zoneName
       properties:
         zoneId:
           type: string
