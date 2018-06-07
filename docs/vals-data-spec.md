@@ -63,7 +63,7 @@ GPS is expected to be published on a separate topic with en separate topic with 
 
 Example of an \$GPRMC-string:
 
-    \$GPRMC,150000,A,5654.660,N,01432.52,E,3.14,90,241216,1.2,E,A\*3E
+    $GPRMC,150000,A,5654.660,N,01432.52,E,3.14,90,241216,1.2,E,A*3E
 
 ### Journey
 
