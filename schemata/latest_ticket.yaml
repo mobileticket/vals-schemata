@@ -1,3 +1,5 @@
+# version: 1.0.0
+
 $schema: http://json-schema.org/schema#
 
 type: object
@@ -7,6 +9,8 @@ required:
   - travellersPerCategory
   - tickle
 properties:
+  version:
+    type: string
   validator:
     $ref: '#/definitions/validator'
   validTicket:

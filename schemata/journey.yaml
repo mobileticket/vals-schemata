@@ -1,3 +1,5 @@
+# version: 1.0.0
+
 $schema: http://json-schema.org/schema#
 
 type: object
@@ -7,6 +9,8 @@ required:
   - tripId
   - blockId
 properties:
+  version:
+    type: string
   destination:
     description: The destination of the service
     type: object

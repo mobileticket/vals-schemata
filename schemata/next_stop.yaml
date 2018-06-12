@@ -1,3 +1,5 @@
+# version: 1.0.0
+
 $schema: http://json-schema.org/schema#
 
 type: object
@@ -5,6 +7,8 @@ required:
   - stopAreaId
   - stopAreaName
 properties:
+  version:
+    type: string
   stopAreaId:
     description: The unique identifier of the stop
     type: string
