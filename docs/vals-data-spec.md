@@ -74,6 +74,7 @@ Journey-telegram should be sent in connection to when the Vehicle is signposted,
 Journey-telegram should after that be sent out approx every 30 sec.
 
 *Source: [../schemata/journey.yaml](../schemata/journey.yaml)*
+*Example: [../examples/journey.json](../schemata/journey.json)*
 
 
 ### Last stop
@@ -83,6 +84,7 @@ Journey-telegram should after that be sent out approx every 30 sec.
 LastStop telegrams should be sent in connection to the vehicle arriving at the stop.
 
 *Source: [../schemata/last_stop.yaml](../schemata/last_stop.yaml)*
+*Example: [../examples/last_stop.json](../schemata/last_stop.json)*
 
 
 ### Next stop
@@ -90,6 +92,7 @@ LastStop telegrams should be sent in connection to the vehicle arriving at the s
 **Next stop** contains same information as **last stop** but concerning the approaching stop. Next stop should be sent in connection to lastStop.
 
 *Source: [../schemata/next_stop.yaml](../schemata/next_stop.yaml)*
+*Example: [../examples/next_stop.json](../schemata/next_stop.json)*
 
 
 ### At stop
@@ -99,6 +102,7 @@ LastStop telegrams should be sent in connection to the vehicle arriving at the s
 AtStop-telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
 
 *Source: [../schemata/at_stop.yaml](../schemata/at_stop.yaml)*
+*Example: [../examples/at_stop.json](../schemata/at_stop.json)*
 
 
 ## Publication of validation over MQTT
@@ -111,12 +115,14 @@ In connection to a validation two telegrams are published, see below.
 **Latest ticket** contains the pre-formatted text version of the last validated ticket in actual validator.
 
 *Source: [../schemata/latest_ticket.yaml](../schemata/latest_ticket.yaml)*
+*Example: [../examples/latest_ticket.json](../schemata/latest_ticket.json)*
 
 
 ### Status
 **status** containing place information etc. Status is published in relation to events such as a new stop, new service etc. in order to keep the information on the drivers monitor updated.
 
 *Source: [../schemata/status.yaml](../schemata/status.yaml)*
+*Example: [../examples/status.json](../schemata/status.json)*
 
 All strings in both telegram types are encoded as UTF-8.
 
