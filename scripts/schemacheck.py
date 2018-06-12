@@ -15,6 +15,7 @@ def main():
                         nargs='+',
                         metavar='filename')
     parser.add_argument('--json', action='store_true')
+    parser.add_argument('--input',metavar='filename')
     args = parser.parse_args()
 
     for filename in args.schema:
@@ -31,6 +32,17 @@ def main():
 
         if args.json:
             print(json.dumps(schema, indent=4))
+
+        if args.input:
+            with open(args.input) as file:
+                print("Checking input", args.input, file=sys.stderr)
+                if args.input.endswith('.json'):
+                    data = json.load(file)
+                elif args.input.endswith('.yaml'):
+                    data = yaml.load(file)
+                else:
+                    raise Exception("Unknown input format")
+                jsonschema.validate(data, schema)
 
 
 if __name__ == "__main__":
