@@ -1,10 +1,12 @@
 # Data provision for Validation Service aboard
 
+Version: 2018-06-12
+
 ## General information
 
 Validation Service aboard is the device that reads and interprets the ticket "blipped" by the traveller when embarking. Included in the Validation Service concept is also a software programme to view the validated ticket on a drivers display.
 
-![Vals overview](img/validationService.png?raw=true  "Vals overview")
+![Vals overview](img/validationService.png?raw=true "Vals overview")
 Validation Service checks that the scanned ticket is authentic and not copied. This is for example done by checking the cryptographical signatures. Validation Service also check the ticket validity regarding time and place.
 
 Validation Service then publish the validation over MQTT in the vehicle network, so that it can be displayed on the driver's monitor, as well as over audio and light signal on the ticket scanner.
@@ -59,7 +61,7 @@ All The following telegrams are used:
 
 GPS should not be updated with a frequency higher than 1 (one) hertz. A preferable resolution is about every 5th second.
 
-GPS is expected to be published on a separate topic with en separate topic with \$GPRMC as starting header in the string.
+GPS is expected to be published on a separate topic with `$GPRMC` as starting header in the string.
 
 Example of an \$GPRMC-string:
 
@@ -67,11 +69,9 @@ Example of an \$GPRMC-string:
 
 ### Journey
 
-**Journey** (Service), Includes service number (linjenummer) and destination. Service is normally not used as validation term but is sent together with other data in transactions to backend for statistics. 
+**Journey** (Service), Includes service number (_linjenummer_) and destination. Service is normally not used as validation term but is sent together with other data in transactions to backend for statistics. 
 
-Journey-telegram should be sent in connection to when the Vehicle is signposted, so that the drivers monitor can display the same information as the vehicle sign. 
-
-Journey-telegram should after that be sent out approx every 30 sec.
+Journey telegrams should be sent in connection to when the Vehicle is signposted, so that the drivers monitor can display the same information as the vehicle sign, as well as approx every 30 sec.
 
 *Source: [../schemata/journey.yaml](../schemata/journey.yaml)*
 *Example: [../examples/journey.json](../schemata/journey.json)*
@@ -81,7 +81,7 @@ Journey-telegram should after that be sent out approx every 30 sec.
 
 **Last stop** (current stop), contains the unique id (e.g., GID), name of the stop (to be displayed on the drivers monitor and zone-id and zone name. If the stop is connected to more than one zone (called "omlottzon") all zones shall be included with their zone-ids and zone names. 
 
-LastStop telegrams should be sent in connection to the vehicle arriving at the stop.
+Last stop telegrams should be sent in connection to the vehicle arriving at the stop.
 
 *Source: [../schemata/last_stop.yaml](../schemata/last_stop.yaml)*
 *Example: [../examples/last_stop.json](../schemata/last_stop.json)*
@@ -89,7 +89,7 @@ LastStop telegrams should be sent in connection to the vehicle arriving at the s
 
 ### Next stop
 
-**Next stop** contains same information as **last stop** but concerning the approaching stop. Next stop should be sent in connection to lastStop.
+**Next stop** contains same information as **last stop** but concerning the approaching stop. Next stop telegrams should be sent in connection to last stop telegrams.
 
 *Source: [../schemata/next_stop.yaml](../schemata/next_stop.yaml)*
 *Example: [../examples/next_stop.json](../schemata/next_stop.json)*
@@ -97,9 +97,9 @@ LastStop telegrams should be sent in connection to the vehicle arriving at the s
 
 ### At stop
 
-**At stop** contains a boolean value True/False depending if the vehicle is at a stop or not. This information is used to adjust the backlight on the drivers monitor. 
+**At stop** contains a boolean value True/False depending if the vehicle is at a stop or not. This information may be used to adjust the backlight on the drivers monitor.
 
-AtStop-telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
+At stop telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
 
 *Source: [../schemata/at_stop.yaml](../schemata/at_stop.yaml)*
 *Example: [../examples/at_stop.json](../schemata/at_stop.json)*
@@ -112,6 +112,7 @@ Validation Service publish validation information in a pre-formatted text versio
 In connection to a validation two telegrams are published, see below.
 
 ### Latest ticket
+
 **Latest ticket** contains the pre-formatted text version of the last validated ticket in actual validator.
 
 *Source: [../schemata/latest_ticket.yaml](../schemata/latest_ticket.yaml)*
@@ -149,7 +150,7 @@ Preferably are if the following topics can be used:
 
 # Requirements of communication with backend
 
-Validation Service communicates with backend at typically startup and at every transaction. Communication is made through ssh and rsync (encrypted over ssh) to handle programs and data providing and through the BoB API:s, which are a RESTful API over TLS.
+Validation Service communicates with backend at typically startup and at every transaction. Communication is made through ssh and rsync (encrypted over ssh) to handle programs and data providing and through the BoB API:s, which are a RESTful HTTP API.
 
 ![N.B.: This image shows an earlier version of BoB API-endpoints.](img/api.png)
 
@@ -157,6 +158,6 @@ At boot the host handshakes with backend and check program versions. A possibly 
 
 After the start-up of Validation Service, all communications are made asynchronous and are queued in the transaction manager of Validation Service.
 
-Communication shall be based on TCP/IP. Validation Service handles both IPv4 and IPv6 seamlessly. The IP addressing can be static or over DHCP, although DHCP is preferred. If static IP is used, the units for Validation Service should have the same IP-address regardless of which vehicle. E.g., the vehicle network use NAT or corresponding address translation.
+Communication shall be based on TCP/IP. Validation Service handles both IPv4 and IPv6 seamlessly. The IP addressing can be static or over DHCP, although DHCP is preferred. If static IP is used, the units for Validation Service should have the same IP-address regardless of which vehicle, e.g., the vehicle network use network address translation (NAT).
 
-The vehicle shall have a gateway that TCP-sessions can be established between every vehicle and backend. If the vehicle is moving between different systems the Validation Service needs to be able to reach backend API:s I for each of these systems. This can be made by a proxy in Validation Service backend.
+The vehicle shall have a gateway that allows TCP-sessions to be established from every vehicle to the backend. If the vehicle is moving between different systems the Validation Service needs to be able to reach backend API:s for each of these systems, either directly or via a proxy.
