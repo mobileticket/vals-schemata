@@ -1,0 +1,25 @@
+{
+	"validator": {
+		"validatorId": "1337",
+		"location": "FLL644",
+		"sublocation": "trunk"
+	},
+	"validTicket": true,
+	"issuerId": "22",
+	"issuerName": "Hallandstrafiken",
+	"travellersPerCategory": [
+		{
+			"cat": "a",
+			"tra": 1
+		}
+	],
+	"productIds": [
+		"D45C6EFC-58AC-4637-875B-63B3B7F3B81D",
+		"2CDB1DDC-9F0E-4DB2-87CB-57040E2CAB6F"
+	],
+	"productName": "Månadskort vuxen",
+	"timeOfIssue": "20180101T000000+0100",
+	"expire": "20180201T000000+0100",
+	"graced": false,
+	"tickle": "22: 20180101T000000/P30D & 22:zone:[820]"
+}

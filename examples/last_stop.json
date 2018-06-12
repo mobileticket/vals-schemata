@@ -1,0 +1,10 @@
+{
+	"stopAreaId": "2038",
+	"stopAreaName": "Kapellsjön nedre",
+	"zones": [
+		{
+			"zoneId": "820",
+			"zoneName": "Laholm"
+		}
+	]
+}

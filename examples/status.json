@@ -1,0 +1,11 @@
+{
+	"validator": {
+		"validatorId": "1337",
+		"location": "FLL644",
+		"sublocation": "trunk"
+	},
+	"ready": true,
+	"statusMessageTerse": "ok",
+	"statusMessageVerbose": "All systems go",
+	"eventQueueLength": 42
+}

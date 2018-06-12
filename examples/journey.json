@@ -1,0 +1,9 @@
+{
+	"destination": {
+		"stopAreaId": "2038",
+		"stopAreaName": "Kapellsjön nedre"
+	},
+	"serviceId": "s1",
+	"tripId": "t1",
+	"blockId": "b1"
+}
