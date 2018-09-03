@@ -9,3 +9,4 @@ check:
 	$(SCHEMACHECK) $(SCHEMADIR)/next_stop.yaml
 	$(SCHEMACHECK) $(SCHEMADIR)/status.yaml
 	$(SCHEMACHECK) $(SCHEMADIR)/vehicle.yaml
+	$(SCHEMACHECK) $(SCHEMADIR)/remaining_stops.yaml

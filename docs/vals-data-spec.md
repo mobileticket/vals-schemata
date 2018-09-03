@@ -105,6 +105,14 @@ Last stop telegrams should be sent in connection to the vehicle arriving at the 
 *Example: [../examples/next_stop.json](../schemata/next_stop.json)*
 
 
+### Remaining stops
+
+**Remaining stops** contains a list of all remaing stops on the journey and should be sent in connection to last stop telegrams.
+
+*Source: [../schemata/remaining_stops.yaml](../schemata/remaining_stops.yaml)*
+*Example: [../examples/remaining_stops.json](../schemata/remaining_stops.json)*
+
+
 ### At stop
 
 **At stop** contains a boolean value True/False depending if the vehicle is at a stop or not. This information may be used to adjust the backlight on the drivers monitor.
@@ -147,16 +155,17 @@ The MQTT broker is expected to listen on MQTT standard port, 1883.
 Preferably are if the following topics can be used:
 
 
-| Schema        | MQTT Topic                       | Direction |
-| ------------- | -------------------------------- | --------- |
-| none          | service/gps/rmc                  | in        |
-| vehicle       | service/v1/vehicle               | in        |
-| journey       | service/v1/journey               | in        |
-| at_stop       | service/v1/atStop                | in        |
-| last_stop     | service/v1/lastStop              | in        |
-| next_stop     | service/v1/nextStop              | in        |
-| latest_ticket | service/v1/Validate/latestticket | out       |
-| status        | service/v1/Validate/status       | out       |
+| Schema          | MQTT Topic                       | Direction |
+| --------------- | -------------------------------- | --------- |
+| none            | service/gps/rmc                  | in        |
+| vehicle         | service/v1/vehicle               | in        |
+| journey         | service/v1/journey               | in        |
+| at_stop         | service/v1/atStop                | in        |
+| last_stop       | service/v1/lastStop              | in        |
+| next_stop       | service/v1/nextStop              | in        |
+| remaining_stops | service/v1/remainingStops        | in        |
+| latest_ticket   | service/v1/Validate/latestticket | out       |
+| status          | service/v1/Validate/status       | out       |
 
 
 # Requirements of communication with backend

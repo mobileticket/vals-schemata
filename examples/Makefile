@@ -9,3 +9,4 @@ check:
 	$(SCHEMACHECK) --input next_stop.json $(SCHEMADIR)/next_stop.yaml
 	$(SCHEMACHECK) --input status.json $(SCHEMADIR)/status.yaml
 	$(SCHEMACHECK) --input vehicle.json $(SCHEMADIR)/vehicle.yaml
+	$(SCHEMACHECK) --input remaining_stops.json $(SCHEMADIR)/remaining_stops.yaml

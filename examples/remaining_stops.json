@@ -1,0 +1,25 @@
+{
+	"version:": "1.0.0",
+	"remainingStops": [
+		{
+			"stopAreaId": "2037",
+			"stopAreaName": "Kapellsjön",
+			"zones": [
+				{
+					"zoneId": "820",
+					"zoneName": "Laholm"
+				}
+			]
+		},
+		{
+			"stopAreaId": "2039",
+			"stopAreaName": "Kapellsjön nedre",
+			"zones": [
+				{
+					"zoneId": "820",
+					"zoneName": "Laholm"
+				}
+			]
+		}
+	]
+}
