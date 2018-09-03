@@ -9,6 +9,7 @@ N.B. All schemas are written in YAML format to increase readability.
 
 | Schema        | MQTT Topic                       | Direction |
 | ------------- | -------------------------------- | --------- |
+| vehicle       | service/v1/vehicle               | in        |
 | journey       | service/v1/journey               | in        |
 | at_stop       | service/v1/atStop                | in        |
 | last_stop     | service/v1/lastStop              | in        |

@@ -67,6 +67,16 @@ Example of an \$GPRMC-string:
 
     $GPRMC,150000,A,5654.660,N,01432.52,E,3.14,90,241216,1.2,E,A*3E
 
+### Vehicle
+
+**Vehicle**, Includes identification of the vehicle.
+
+Vehicle telegrams should be sent upon vehicle startup and shall be published with the retain flag set.
+
+*Source: [../schemata/vehicle.yaml](../schemata/vehicle.yaml)*
+*Example: [../examples/vehicle.json](../schemata/vehicle.json)*
+
+
 ### Journey
 
 **Journey** (Service), Includes service number (_linjenummer_) and destination. Service is normally not used as validation term but is sent together with other data in transactions to backend for statistics. 
@@ -140,6 +150,7 @@ Preferably are if the following topics can be used:
 | Schema        | MQTT Topic                       | Direction |
 | ------------- | -------------------------------- | --------- |
 | none          | service/gps/rmc                  | in        |
+| vehicle       | service/v1/vehicle               | in        |
 | journey       | service/v1/journey               | in        |
 | at_stop       | service/v1/atStop                | in        |
 | last_stop     | service/v1/lastStop              | in        |

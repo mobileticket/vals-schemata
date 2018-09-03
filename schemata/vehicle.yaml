@@ -1,0 +1,12 @@
+# version: 1.0.0
+
+$schema: http://json-schema.org/schema#
+
+type: object
+required:
+  - id
+properties:
+  version:
+    type: string
+  id:
+    type: string

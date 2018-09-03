@@ -8,3 +8,4 @@ check:
 	$(SCHEMACHECK) $(SCHEMADIR)/latest_ticket.yaml
 	$(SCHEMACHECK) $(SCHEMADIR)/next_stop.yaml
 	$(SCHEMACHECK) $(SCHEMADIR)/status.yaml
+	$(SCHEMACHECK) $(SCHEMADIR)/vehicle.yaml
