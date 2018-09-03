@@ -1,4 +1,5 @@
 {
+	"version:": "1.0.0",
 	"validator": {
 		"validatorId": "1337",
 		"location": "FLL644",
