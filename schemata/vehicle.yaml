@@ -4,9 +4,30 @@ $schema: http://json-schema.org/schema#
 
 type: object
 required:
-  - id
+  - vehicleRef
 properties:
   version:
     type: string
-  id:
-    type: string
+    items:
+      $ref: '#/definitions/vehicleRef'
+
+definitions:
+  vehicleRef:
+    type: object
+    required:
+      - vehicleRefType
+      - vehicleRefId
+      - origin
+    properties:
+      vehicleRefType:
+        type: string
+      vehicleRefId:
+        type: string
+      origin:
+        type: string
+      firstSeen:
+        type: string
+        format: date-time
+      lastSeen:
+        type: string
+        format: date-time
