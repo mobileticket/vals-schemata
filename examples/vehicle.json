@@ -1,4 +1,33 @@
 {
 	"version:": "1.0.0",
-	"id": "EC0F3754-45B1-406C-A233-C8B13D6C72CD"
+	"vehicleRef": [
+		{
+			"vehicleRefType": "MAC",
+			"vehicleRefId": "7c:5c:f8:ef:d5:0d",
+			"origin": "XID",
+			"firstSeen": "2018-09-10T14:54:10Z",
+			"lastSeen": "2018-09-12T16:32:14Z"
+		},
+		{
+			"vehicleRefType": "VIN",
+			"vehicleRefId": "YV1704865f2116389",
+			"origin": "FMS",
+			"firstSeen": "2018-09-10T14:54:10Z",
+			"lastSeen": "2018-09-12T16:32:14Z"
+		},
+		{
+			"vehicleRefType": "RegNR",
+			"vehicleRefId": "BAD123",
+			"origin": "wanda",
+			"firstSeen": "2018-09-10T14:54:10Z",
+			"lastSeen": "2018-09-12T16:32:14Z"
+		},
+		{
+			"vehicleRefType": "vehicleNR",
+			"vehicleRefId": "3241",
+			"origin": "wanda",
+			"firstSeen": "2018-09-10T14:54:10Z",
+			"lastSeen": "2018-09-12T16:32:14Z"
+		}
+	]
 }
