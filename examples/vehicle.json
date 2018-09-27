@@ -1,33 +1,19 @@
 {
 	"version:": "1.0.0",
-	"vehicleRef": [
+	"identifiers": [
 		{
-			"vehicleRefType": "MAC",
-			"vehicleRefId": "7c:5c:f8:ef:d5:0d",
 			"origin": "XID",
-			"firstSeen": "2018-09-10T14:54:10Z",
-			"lastSeen": "2018-09-12T16:32:14Z"
+			"EUI48": "7c-5c-f8-ef-d5-0d",
+			"EUI64": "00-00-7c-5c-f8-ef-d5-0d"
 		},
 		{
-			"vehicleRefType": "VIN",
-			"vehicleRefId": "YV1704865f2116389",
+			"origin": "xyzzy",
+			"UUID": "c20e7365-79dc-40ea-9f6f-89b682385665"
+		},
+		{
 			"origin": "FMS",
-			"firstSeen": "2018-09-10T14:54:10Z",
-			"lastSeen": "2018-09-12T16:32:14Z"
-		},
-		{
-			"vehicleRefType": "RegNR",
-			"vehicleRefId": "BAD123",
-			"origin": "wanda",
-			"firstSeen": "2018-09-10T14:54:10Z",
-			"lastSeen": "2018-09-12T16:32:14Z"
-		},
-		{
-			"vehicleRefType": "vehicleNR",
-			"vehicleRefId": "3241",
-			"origin": "wanda",
-			"firstSeen": "2018-09-10T14:54:10Z",
-			"lastSeen": "2018-09-12T16:32:14Z"
+			"VIN": "1GNDT13X53K185279",
+			"registrationNumber": "CFS027"
 		}
 	]
 }
