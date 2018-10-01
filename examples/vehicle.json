@@ -8,7 +8,8 @@
 		},
 		{
 			"origin": "xyzzy",
-			"UUID": "c20e7365-79dc-40ea-9f6f-89b682385665"
+			"UUID": "c20e7365-79dc-40ea-9f6f-89b682385665",
+			"vehicleGID": "SE.9031014003312345"
 		},
 		{
 			"origin": "FMS",
