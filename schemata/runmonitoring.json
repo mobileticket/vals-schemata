@@ -1,0 +1,46 @@
+# version: 1.0.0
+
+$schema: http://json-schema.org/schema#
+
+type: object
+required:
+  - monitoredRunState
+properties:
+  version:
+    type: string
+  commandPath:
+    type: string
+  monitoredRunState:
+    type: object
+    items:
+      $ref: '#/definitions/monitoredRunState'
+
+definitions:
+  monitoredRunState:
+    type: object
+    properties:
+      recordedAtTime:
+        type: string
+        format: date-time
+      monitoredBlockRef:
+        type: string
+      currentRunInfo:
+        $ref: '#/definitions/runInfo'
+      nextRunInfo:
+        $ref: '#/definitions/runInfo'
+  monitoredRunState:
+    type: object
+    required:
+      - runState
+      - patternRunType
+    properties:
+      runState:
+        type: string
+      patternRunType:
+        type: string
+      journeyPatternRef:
+        type: string
+      vehicleJourneyRef:
+        type: string
+      verifiedRunState:
+        type: bool
