@@ -3,12 +3,12 @@
 	"identifiers": [
 		{
 			"origin": "XID",
-			"EUI48": "7c-5c-f8-ef-d5-0d",
-			"EUI64": "00-00-7c-5c-f8-ef-d5-0d"
+			"EUI48": "7C-5C-F8-EF-D5-0D",
+			"EUI64": "00-00-7C-5C-F8-EF-D5-0D"
 		},
 		{
 			"origin": "xyzzy",
-			"UUID": "c20e7365-79dc-40ea-9f6f-89b682385665",
+			"UUID": "C20E7365-79DC-40EA-9F6F-89B682385665",
 			"vehicleGID": "SE.9031014003312345",
 			"TCID": "50464E2D0021E021"
 		},
