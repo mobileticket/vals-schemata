@@ -40,14 +40,17 @@ definitions:
         type: string
         pattern: "[A-Z0-9]{11,17}"
       vehicleNumber:
+        description: Vehicle number
         type: string
+        pattern: "[A-Z0-9]{1,16}"
       registrationNumber:
+        description: Vehicle license plate
         type: string
       GID:
-        type: string
-      CCID:
+        description: Vehicle GID
         type: string
       TCID:
+        description: Transit cloud identifier
         type: string
       UUID:
         description: "Universally unique identifier (UUID) per ISO/IEC 9834-8:2005"
