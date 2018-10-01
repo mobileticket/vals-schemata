@@ -21,6 +21,12 @@ definitions:
     properties:
       origin:
         type: string
+      firstSeen:
+        type: string
+        format: date-time
+      lastSeen:
+        type: string
+        format: date-time
       EUI48:
         description: "IEEE 48-bit Extended Unique Identifier (EUI-48)"
         type: string
