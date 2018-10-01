@@ -53,7 +53,7 @@ definitions:
       TCID:
         description: Transit cloud identifier, ASCII representation of 6-8 byte Hex
         type: string
-        pattern: "([a-f0-9]{2}){6,8}"
+        pattern: "([A-F0-9]{2}){6,8}"
       UUID:
         description: "Universally unique identifier (UUID) per ISO/IEC 9834-8:2005"
         type: string
