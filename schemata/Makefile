@@ -10,3 +10,4 @@ check:
 	$(SCHEMACHECK) $(SCHEMADIR)/status.yaml
 	$(SCHEMACHECK) $(SCHEMADIR)/vehicle.yaml
 	$(SCHEMACHECK) $(SCHEMADIR)/remaining_stops.yaml
+	$(SCHEMACHECK) $(SCHEMADIR)/run_monitoring.yaml
