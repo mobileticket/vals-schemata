@@ -9,7 +9,7 @@
 			"patternRunType": "JourneyPattern",
 			"journeyPatternRef": "9308",
 			"vehicleJourneyRef": "930110",
-			"verifiedRunState": true,
+			"verifiedRunState": true
 		},
 		"nextRunInfo": {
 			"runState": "RunToPattern",
