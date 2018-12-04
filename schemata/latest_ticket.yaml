@@ -7,7 +7,7 @@ required:
   - validTicket
   - issuerId
   - travellersPerCategory
-  - tickle
+  - mtb
 properties:
   version:
     type: string
