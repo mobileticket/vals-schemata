@@ -74,7 +74,7 @@ Example of an \$GPRMC-string:
 Vehicle telegrams should be sent upon vehicle startup and shall be published with the retain flag set.
 
 *Source: [../schemata/vehicle.yaml](../schemata/vehicle.yaml)*
-*Example: [../examples/vehicle.json](../schemata/vehicle.json)*
+*Example: [../examples/vehicle.json](../examples/vehicle.json)*
 
 
 ### Journey
@@ -84,7 +84,7 @@ Vehicle telegrams should be sent upon vehicle startup and shall be published wit
 Journey telegrams should be sent in connection to when the Vehicle is signposted, so that the drivers monitor can display the same information as the vehicle sign, as well as approx every 30 sec.
 
 *Source: [../schemata/journey.yaml](../schemata/journey.yaml)*
-*Example: [../examples/journey.json](../schemata/journey.json)*
+*Example: [../examples/journey.json](../examples/journey.json)*
 
 
 ### Last stop
@@ -94,7 +94,7 @@ Journey telegrams should be sent in connection to when the Vehicle is signposted
 Last stop telegrams should be sent in connection to the vehicle arriving at the stop.
 
 *Source: [../schemata/last_stop.yaml](../schemata/last_stop.yaml)*
-*Example: [../examples/last_stop.json](../schemata/last_stop.json)*
+*Example: [../examples/last_stop.json](../examples/last_stop.json)*
 
 
 ### Next stop
@@ -102,15 +102,15 @@ Last stop telegrams should be sent in connection to the vehicle arriving at the 
 **Next stop** contains same information as **last stop** but concerning the approaching stop. Next stop telegrams should be sent in connection to last stop telegrams.
 
 *Source: [../schemata/next_stop.yaml](../schemata/next_stop.yaml)*
-*Example: [../examples/next_stop.json](../schemata/next_stop.json)*
+*Example: [../examples/next_stop.json](../examples/next_stop.json)*
 
 
 ### Remaining stops
 
-**Remaining stops** contains a list of all remaing stops on the journey and should be sent in connection to last stop telegrams.
+**Remaining stops** contains a list of all remaining stops on the journey and should be sent in connection to last stop telegrams.
 
 *Source: [../schemata/remaining_stops.yaml](../schemata/remaining_stops.yaml)*
-*Example: [../examples/remaining_stops.json](../schemata/remaining_stops.json)*
+*Example: [../examples/remaining_stops.json](../examples/remaining_stops.json)*
 
 
 ### At stop
@@ -120,7 +120,7 @@ Last stop telegrams should be sent in connection to the vehicle arriving at the 
 At stop telegrams should be sent when the state is changed, typically when a vehicle arrives to and departures from a stop.
 
 *Source: [../schemata/at_stop.yaml](../schemata/at_stop.yaml)*
-*Example: [../examples/at_stop.json](../schemata/at_stop.json)*
+*Example: [../examples/at_stop.json](../examples/at_stop.json)*
 
 
 ## Publication of validation over MQTT
@@ -134,14 +134,14 @@ In connection to a validation two telegrams are published, see below.
 **Latest ticket** contains the pre-formatted text version of the last validated ticket in actual validator.
 
 *Source: [../schemata/latest_ticket.yaml](../schemata/latest_ticket.yaml)*
-*Example: [../examples/latest_ticket.json](../schemata/latest_ticket.json)*
+*Example: [../examples/latest_ticket.json](../examples/latest_ticket.json)*
 
 
 ### Status
 **status** containing place information etc. Status is published in relation to events such as a new stop, new service etc. in order to keep the information on the drivers monitor updated.
 
 *Source: [../schemata/status.yaml](../schemata/status.yaml)*
-*Example: [../examples/status.json](../schemata/status.json)*
+*Example: [../examples/status.json](../examples/status.json)*
 
 All strings in both telegram types are encoded as UTF-8.
 
