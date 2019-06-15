@@ -23,7 +23,7 @@ properties:
     description: Notification priority
     type: string
     enum:
-      - emergence
+      - emergency
       - alert
       - critical
       - error
