@@ -18,4 +18,5 @@ N.B. All schemas are written in YAML format to increase readability.
 | remaining_stops | service/v1/remainingStops           | in        | Yes      |
 | latest_ticket   | service/v1/Validate/latestticket    | out       | Yes      |
 | status          | service/v1/Validate/status          | out       | Yes      |
+| notification    | service/v1/Validate/notification    | out       | No       |
 | run_monitoring  | service/itxpt/v2/avms/runmonitoring | in        | No       |
