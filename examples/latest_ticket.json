@@ -1,5 +1,6 @@
 {
-	"version": "1.0.0",
+	"version": "1.0.1",
+	"eventResult": 0,
 	"validator": {
 		"validatorId": "1337",
 		"location": "FLL644",

@@ -1,13 +1,10 @@
-# version: 1.0.0
+# version: 1.0.1
 
 $schema: http://json-schema.org/schema#
 
 type: object
 required:
-  - validTicket
-  - issuerId
-  - travellersPerCategory
-  - mtb
+  - eventResult
 properties:
   version:
     type: string
