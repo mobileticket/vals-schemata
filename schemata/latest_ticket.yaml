@@ -61,6 +61,11 @@ properties:
           type: number
   mtb:
     $ref: '#/definitions/mtb'
+  spatialConstraints:
+    description: Space constraints
+    type: array
+    items:
+      $ref: '#/definitions/spatialConstraint'
 
 definitions:
   validator:
@@ -97,4 +102,9 @@ definitions:
         type: integer
       c_tc:
         description: TICKLE concrete syntax entitlement
+        type: string
+  spatialConstraint:
+    type: object
+    properties:
+      name:
         type: string

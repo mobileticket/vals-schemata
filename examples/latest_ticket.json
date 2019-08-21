@@ -27,5 +27,13 @@
 		"c_vm": 1,
 		"c_vt": 1,
 		"c_tc": "22: 20180101T000000/P30D & 22:zone:[820]"
-	}
+	},
+	"spatialConstraints": [
+		{
+			"name": "Zone 820"
+		},
+		{
+			"name": "Zone 842"
+		}
+	]
 }

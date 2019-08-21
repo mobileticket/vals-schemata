@@ -1,0 +1,33 @@
+# version: 1.0.0
+
+$schema: http://json-schema.org/schema#
+
+type: object
+required:
+  - id
+  - title
+  - message
+properties:
+  version:
+    type: string
+  id:
+    description: Unique identifier for notification
+    type: string
+  title:
+    description: Notification title
+    type: string
+  message:
+    description: Notification message
+    type: string
+  priority:
+    description: Notification priority
+    type: string
+    enum:
+      - emergency
+      - alert
+      - critical
+      - error
+      - warning
+      - notice
+      - info
+      - debug
