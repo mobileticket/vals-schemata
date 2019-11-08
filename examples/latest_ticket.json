@@ -22,6 +22,7 @@
 	"productName": "Månadskort vuxen",
 	"timeOfIssue": "20180101T000000+0100",
 	"startOfValidity": "20180201T000000+0100",
+	"relativeValidity": "P30D",
 	"expire": "20180201T000000+0100",
 	"graced": false,
 	"mtb": {

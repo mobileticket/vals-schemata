@@ -41,6 +41,9 @@ properties:
     description: DateTime of start of validity
     type: string
     format: date-time
+  relativeValidity:
+    description: Relative validity (ISO 8601 Duration)
+    type: string
   expire:
     description: DateTime of ticket expire
     type: string
