@@ -1,5 +1,5 @@
 {
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"eventResult": 0,
 	"validator": {
 		"validatorId": "1337",
@@ -21,6 +21,7 @@
 	],
 	"productName": "Månadskort vuxen",
 	"timeOfIssue": "20180101T000000+0100",
+	"startOfValidity": "20180201T000000+0100",
 	"expire": "20180201T000000+0100",
 	"graced": false,
 	"mtb": {
