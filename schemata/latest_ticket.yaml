@@ -1,4 +1,4 @@
-# version: 1.1.0
+# version: 1.2.0
 
 $schema: http://json-schema.org/schema#
 
@@ -65,6 +65,26 @@ properties:
           type: number
   mtb:
     $ref: '#/definitions/mtb'
+  mtbReference:
+    description: MTB reference
+    type: object
+    required:
+      - pid
+      - issuerSignature
+    properties:
+      pid:
+        description: Participant identifier
+        type: integer
+        format: int64
+      issuerSignature:
+        description: MTB issuer signature
+        type: string
+        format: base64url
+  tokenIssuer:
+    type: integer
+    format: int64
+  tokenId:
+    type: string
   spatialConstraints:
     description: Space constraints
     type: array
