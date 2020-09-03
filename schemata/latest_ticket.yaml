@@ -81,6 +81,7 @@ properties:
         type: string
         format: base64url
   tokenIssuer:
+    description: PID of token issuer
     type: integer
     format: int64
   tokenId:
