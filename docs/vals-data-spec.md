@@ -87,23 +87,20 @@ Journey telegrams should be sent in connection to when the Vehicle is signposted
 *Example: [../examples/journey.json](../examples/journey.json)*
 
 
-### Last stop
+### Last stop & next stop
 
-**Last stop** (current stop), contains the unique id (e.g., GID), name of the stop (to be displayed on the drivers monitor and zone-id and zone name. If the stop is connected to more than one zone (called "omlottzon") all zones shall be included with their zone-ids and zone names. 
+**Last stop** and **Next stop** telegrams should be sent in connection to the vehicle arriving at the stop (usually a certain distance in meters before arrival). Here, **last stop** should represent the stop the vehicle is arriving at, and **next stop** represents the stop after. The telegrams should contain:
+ - The unique id of the stop (e.g., GID). This id is being used to map the stop to an entry in the stops data (file) of validation service
+ - Name of the stop (e.g to be displayed on the drivers monitor)
+ - Zone-id & zone name pairs. If the stop is connected to more than one zone (called "omlottzon") all zones shall be included with their zone-ids and zone names. 
 
-Last stop telegrams should be sent in connection to the vehicle arriving at the stop.
-
-*Source: [../schemata/last_stop.yaml](../schemata/last_stop.yaml)*
-*Example: [../examples/last_stop.json](../examples/last_stop.json)*
-
-
-### Next stop
-
-**Next stop** contains same information as **last stop** but concerning the approaching stop. Next stop telegrams should be sent in connection to last stop telegrams.
-
-*Source: [../schemata/next_stop.yaml](../schemata/next_stop.yaml)*
-*Example: [../examples/next_stop.json](../examples/next_stop.json)*
-
+Sources:
+ - [../schemata/last_stop.yaml](../schemata/last_stop.yaml)
+ - [../schemata/next_stop.yaml](../schemata/next_stop.yaml)
+ 
+ Examples:
+ - [../examples/last_stop.json](../examples/last_stop.json)
+ - [../examples/next_stop.json](../examples/next_stop.json)
 
 ### Remaining stops
 
