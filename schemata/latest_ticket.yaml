@@ -1,4 +1,4 @@
-# version: 1.2.0
+# version: 1.3.0
 
 $schema: http://json-schema.org/schema#
 
@@ -24,6 +24,9 @@ properties:
     type: string
   issuerName:
     description: Ticket issuer name
+    type: string
+  ticketId:
+    description: Ticket identifier
     type: string
   productIds:
     description: Product identifiers for ticket
