@@ -1,5 +1,5 @@
 {
-	"version": "1.1.0",
+	"version": "1.4.0",
 	"eventResult": 0,
 	"validator": {
 		"validatorId": "1337",
@@ -38,5 +38,10 @@
 		{
 			"name": "Zone 842"
 		}
-	]
+	],
+	"ticketActivationStatus": {
+		"active": true,
+		"numberOfActivations": 10,
+		"remainingActivations": 8
+	}
 }
