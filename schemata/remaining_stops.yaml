@@ -25,6 +25,9 @@ definitions:
       stopAreaName:
         description: The name of the stop
         type: string
+      stopPointId:
+        description: The unique identifier of the quay
+        type: string
       zones:
         description: array of zones connected to the stop, primary zone first
         type: array
