@@ -4,6 +4,7 @@
 		{
 			"stopAreaId": "2037",
 			"stopAreaName": "Kapellsjön",
+			"stopPointId": "203701",
 			"zones": [
 				{
 					"zoneId": "820",
@@ -14,6 +15,7 @@
 		{
 			"stopAreaId": "2039",
 			"stopAreaName": "Kapellsjön nedre",
+			"stopPointId": "203901",
 			"zones": [
 				{
 					"zoneId": "820",
