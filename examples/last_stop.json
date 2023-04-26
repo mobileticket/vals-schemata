@@ -2,6 +2,7 @@
 	"version": "1.0.0",
 	"stopAreaId": "2038",
 	"stopAreaName": "Kapellsjön nedre",
+	"stopPointId": "203801",
 	"zones": [
 		{
 			"zoneId": "820",

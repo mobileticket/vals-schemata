@@ -2,6 +2,7 @@
 	"version": "1.0.0",
 	"destination": {
 		"stopAreaId": "2038",
+		"stopPointId": "203801",
 		"stopAreaName": "Kapellsjön nedre"
 	},
 	"serviceId": "s1",

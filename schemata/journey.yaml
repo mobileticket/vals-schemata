@@ -24,6 +24,9 @@ properties:
       stopAreaName:
         description: The name of the stop
         type: string
+      stopPointId:
+        description: The unique identifier of the quay
+        type: string
   serviceId:
     description: The service the vehicle is on
     type: string
