@@ -1,13 +1,13 @@
-SCHEMACHECK=	python3 ../scripts/schemacheck.py
+SCHEMACHECK=	check-jsonschema
 SCHEMADIR=	../schemata
 
 check:
-	$(SCHEMACHECK) --input at_stop.json $(SCHEMADIR)/at_stop.yaml
-	$(SCHEMACHECK) --input journey.json $(SCHEMADIR)/journey.yaml
-	$(SCHEMACHECK) --input last_stop.json $(SCHEMADIR)/last_stop.yaml
-	$(SCHEMACHECK) --input latest_ticket.json $(SCHEMADIR)/latest_ticket.yaml
-	$(SCHEMACHECK) --input next_stop.json $(SCHEMADIR)/next_stop.yaml
-	$(SCHEMACHECK) --input status.json $(SCHEMADIR)/status.yaml
-	$(SCHEMACHECK) --input vehicle.json $(SCHEMADIR)/vehicle.yaml
-	$(SCHEMACHECK) --input remaining_stops.json $(SCHEMADIR)/remaining_stops.yaml
-	$(SCHEMACHECK) --input run_monitoring.json $(SCHEMADIR)/run_monitoring.yaml
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/at_stop.yaml at_stop.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/journey.yaml journey.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/last_stop.yaml last_stop.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/latest_ticket.yaml latest_ticket.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/next_stop.yaml next_stop.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/status.yaml status.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/vehicle.yaml vehicle.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/remaining_stops.yaml remaining_stops.json 
+	$(SCHEMACHECK) --schemafile $(SCHEMADIR)/run_monitoring.yaml run_monitoring.json 
