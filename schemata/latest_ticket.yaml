@@ -1,4 +1,4 @@
-# version: 1.4.0
+# version: 1.5.0
 
 $schema: http://json-schema.org/schema#
 
@@ -36,6 +36,11 @@ properties:
   productName:
     description: Name of product
     type: string
+  productInformation:
+    description: Product information
+    type: array
+    items:
+      $ref: '#/definitions/productInformation'
   timeOfIssue:
     description: DateTime of ticket issuing
     type: string
@@ -173,3 +178,17 @@ definitions:
         type: integer
         format: int64
         example: 1
+  productInformation:
+    description: Product information
+    type: object
+    required:
+      - productId
+    properties:
+      productId:
+        type: string
+      productName:
+        type: string
+      productArea:
+        type: string
+      productCategory:
+        type: string
