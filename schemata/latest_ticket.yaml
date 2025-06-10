@@ -25,6 +25,9 @@ properties:
   issuerName:
     description: Ticket issuer name
     type: string
+  mtbIssuerName:
+    description: MTB issuer name
+    type: string
   ticketId:
     description: Ticket identifier
     type: string
